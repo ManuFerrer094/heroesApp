@@ -4,12 +4,11 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { LayoutPageComponent } from './auth/pages/layout-page/layout-page.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutPageComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +16,8 @@ import { LayoutPageComponent } from './auth/pages/layout-page/layout-page.compon
     SharedModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
