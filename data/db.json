@@ -168,6 +168,15 @@
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd",
       "alt_img": null
+    },
+    {
+      "id": "",
+      "superhero": "Prueba",
+      "publisher": "DC Comics",
+      "alter_ego": "probando",
+      "first_appearance": "probando",
+      "characters": "prueba1",
+      "alt_img": "imagen"
     }
   ]
 }

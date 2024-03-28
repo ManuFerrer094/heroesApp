@@ -20,7 +20,6 @@ export class AuthService {
   }
 
   login( email: string, password: string ):Observable<User> {
-    // http.post('login',{ email, password });
     return this.http.get<User>(`${ this.baseUrl }/users/1`)
       .pipe(
         tap( user => this.user = user ),
@@ -29,18 +28,22 @@ export class AuthService {
   }
 
   checkAuthentication(): Observable<boolean> {
+    if (typeof localStorage === 'undefined' || localStorage === null) {
+      return of(false);
+    }
 
-    if ( !localStorage.getItem('token') ) return of(false);
+    if (!localStorage.getItem('token')) {
+      return of(false);
+    }
 
     const token = localStorage.getItem('token');
 
-    return this.http.get<User>(`${ this.baseUrl }/users/1`)
+    return this.http.get<User>(`${this.baseUrl}/users/1`)
       .pipe(
-        tap( user => this.user = user ),
-        map( user => !!user ),
-        catchError( err => of(false) )
+        tap(user => this.user = user),
+        map(user => !!user),
+        catchError(err => of(false))
       );
-
   }
 
 
