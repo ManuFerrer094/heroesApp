@@ -27,7 +27,7 @@ export class HeroesService {
     return this.http.get<Hero[]>(`${this.baseUrl}/heroes`)
       .pipe(
         map(heroes => {
-          if (!query) return heroes; // Si no hay consulta, retornamos todos los héroes
+          if (!query) return heroes;
           return heroes.filter(hero =>
             hero.superhero && hero.superhero.toLowerCase().includes(query.toLowerCase())
           );

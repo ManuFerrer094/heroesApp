@@ -14,7 +14,8 @@
       "publisher": "Marvel Comics",
       "alter_ego": "Peter Parker",
       "first_appearance": "Amazing Fantasy #15",
-      "characters": "Peter Parker"
+      "characters": "Peter Parker",
+      "alt_img": null
     },
     {
       "id": "dc-superman",
@@ -22,7 +23,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
+      "characters": "Kal-El",
+      "alt_img": null
     },
     {
       "id": "dc-flash",
@@ -127,7 +129,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Dinah Drake",
       "first_appearance": "Flash Comics #86",
-      "characters": "Dinah Drake, Dinah Lance"
+      "characters": "Dinah Drake, Dinah Lance",
+      "alt_img": null
     },
     {
       "id": "marvel-daredevil",
