@@ -9,6 +9,17 @@ import { HeroesService } from '../../services/heroes.service';
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styles: [
+    `
+    .heroes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 16px;
+    }
+
+    .hero-card {
+      width: 100%;
+    }
+    `
   ]
 })
 export class SearchPageComponent {
@@ -17,28 +28,26 @@ export class SearchPageComponent {
   public heroes: Hero[] = [];
   public selectedHero?: Hero;
 
-  constructor( private heroesService: HeroesService ){}
+  constructor(private heroesService: HeroesService) {}
 
   searchHero() {
     const value: string = this.searchInput.value || '';
 
-    this.heroesService.getSuggestions( value )
-      .subscribe( heroes => this.heroes = heroes );
+    this.heroesService.getSuggestions(value)
+      .subscribe(heroes => {
+        this.heroes = heroes;
+      });
   }
 
-
-  onSelectedOption( event: MatAutocompleteSelectedEvent ): void {
-    if ( !event.option.value ) {
+  onSelectedOption(event: MatAutocompleteSelectedEvent): void {
+    if (!event.option.value) {
       this.selectedHero = undefined;
       return;
     }
 
     const hero: Hero = event.option.value;
-    this.searchInput.setValue( hero.superhero );
+    this.searchInput.setValue(hero.superhero);
 
     this.selectedHero = hero;
-
   }
-
-
 }

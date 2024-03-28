@@ -8,13 +8,17 @@ import { Hero } from '../../interfaces/hero.interface';
   ]
 })
 export class CardComponent implements OnInit {
-
-  @Input()
-  public hero!: Hero;
-
+  @Input() hero!: Hero;
 
   ngOnInit(): void {
-    if ( !this.hero ) throw Error('Hero property is required');
+    if (!this.hero) throw new Error('Hero property is required');
   }
 
+  getCharacterNames(hero: Hero): string[] {
+    if (hero.characters) {
+      return hero.characters.split(',');
+    } else {
+      return [];
+    }
+  }
 }
