@@ -7,7 +7,6 @@ import { environments } from '../../../environments/environments';
 
 @Injectable({ providedIn: 'root' })
 export class HeroesService {
-
   private baseUrl: string = environments.baseUrl;
 
   constructor(private http: HttpClient) { }
@@ -24,7 +23,7 @@ export class HeroesService {
   }
 
   getSuggestions(query: string): Observable<Hero[]> {
-    return this.http.get<Hero[]>(`${this.baseUrl}/heroes`)
+    return this.http.get<Hero[]>(`${this.baseUrl}/heroes?_limit=6`)
       .pipe(
         map(heroes => {
           if (!query) return heroes;

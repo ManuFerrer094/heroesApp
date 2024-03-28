@@ -8,8 +8,7 @@ import { Hero } from '../../interfaces/hero.interface';
 @Component({
   selector: 'app-hero-page',
   templateUrl: './hero-page.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class HeroPageComponent implements OnInit {
 
@@ -24,19 +23,16 @@ export class HeroPageComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(
-        switchMap( ({ id }) => this.heroesService.getHeroById( id )),
+        switchMap(({ id }) => this.heroesService.getHeroById(id)),
       )
       .subscribe( hero => {
-
         if ( !hero ) return this.router.navigate([ '/heroes/list' ]);
-
         this.hero = hero;
         return;
-      })
+      });
   }
 
-  goBack():void {
-    this.router.navigateByUrl('heroes/list')
+  goBack(): void {
+    this.router.navigateByUrl('heroes/list');
   }
-
 }
